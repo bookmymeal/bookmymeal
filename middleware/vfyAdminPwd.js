@@ -1,4 +1,4 @@
-const adminPwd = process.env['adminPwd']
+const adminPwd = process.env.adminPwd
 const vfyAdminPwd = (req, res, next) => {
   const {pwd} = req.body
   if(pwd === adminPwd){

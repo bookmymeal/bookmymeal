@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer')
-const sendEmailPass = process.env['emailPass']
+const sendEmailPass = process.env.emailPass
 
 async function sendEmail(to, subject, link) {
 

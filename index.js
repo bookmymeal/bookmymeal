@@ -1,11 +1,11 @@
-require('dotenv').config
+require('dotenv').config()
 
-const url = process.env['url']
+const url = process.env.url
 const path = require('path')
 const mongoConnect = require('./db/mongoConnect')
 const express = require('express');
 const jwt = require('jsonwebtoken')
-const jwtSecret = process.env['jwtSecret']
+const jwtSecret = process.env.jwtSecret
 const cookie_parser = require("cookie-parser");
 
 

@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const jwtSecret = process.env['jwtSecret']
+const jwtSecret = process.env.jwtSecret
 
 const vfyExpToken = (token) => {
   return new Promise((resolve, reject) => {
