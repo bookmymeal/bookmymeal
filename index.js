@@ -12,8 +12,7 @@ const cookie_parser = require("cookie-parser");
 // for test route
 const book = require('./db/schema/booking')
 
-// for testing /vfyAccount
-const use = require('./db/schema/users')
+
 
 const app = express();
 
@@ -37,6 +36,7 @@ const deleteMeal = require('./routes/deleteMeal')
 const createAdmin = require('./routes/createAdmin')
 const removeAdmin = require('./routes/removeAdmin')
 const users = require('./routes/users')
+const vfyAccount = require('./routes/vfyAccount')
 
 app.use('/booking', booking)
 app.use('/register', register)
@@ -49,6 +49,7 @@ app.use('/delete', deleteMeal)
 app.use('/createAdmin', createAdmin)
 app.use('/removeAdmin', removeAdmin)
 app.use('/users', users)
+app.use('/vfyAccount', vfyAccount)
 
 mongoConnect(app)
 
@@ -72,20 +73,6 @@ app.get("/logout", (req, res) => {
 });
 
 
-// app.listen(3000, () => {
-//   console.log('server started');
-//   mongoConnect()
-// });
-
-
-// testing user page
-
-app.post('/vfyAccount', async (req, res) => {
-  const result = await use.updateMany({ _id: { $in: req.body.ids } }, {$set: {'verifiedbyadmin': true}})
-  console.log('Account verfied', result)
-  res.json({ msg: 'data received' })
-  console.log('/vfyAccount', req.body)
-})
 
 
 

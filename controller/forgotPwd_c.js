@@ -1,5 +1,8 @@
 const path = require('path')
 
+// env
+const domain = process.env.domain
+
 // query
 const findOne = require('../db/query/findOne')
 
@@ -30,7 +33,7 @@ const sendForgotPwdLink = async (req, res) => {
       await sendEmail(
         user.email,
         "BMM Reset Your Password",
-        `http://localhost:8000/reset?token=${resetPwdToken.token}`
+        `${domain}/resetPwd?token=${resetPwdToken.token}`
       )
       res.json({ msg: "Reset Password link again send To Your Email" })
     } else {
@@ -45,7 +48,7 @@ const sendForgotPwdLink = async (req, res) => {
             sendEmail(
               user.email,
               "BMM Reset Your Password",
-              `http://localhost:8000/reset?token=${token}`
+              `${domain}/resetPwd?token=${token}`
             )
           })
         res.json({ msg: "Reset Password Send To Your Email" })

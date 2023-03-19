@@ -1,6 +1,9 @@
 // core module
 const path = require('path')
 
+//env
+const domain = process.env.domain
+
 // utils
 const createDBObject = require('../utils/createDBObject')
 
@@ -32,7 +35,7 @@ const registerUser = async (req, res) => {
         sendEmail(
           notVerifiedUser.email,
           "BMM Verify Your Account",
-          `http://localhost:8000/vfyEmail?token=${notVerifiedUser.token}`
+          `${domain}/vfyEmail?token=${notVerifiedUser.token}`
         )
         res.json({ pending: "Verification is pending link is send again." })
         return
@@ -58,7 +61,7 @@ const registerUser = async (req, res) => {
       await sendEmail(
         email,
         "BMM Verify Your Account",
-        `http://localhost:8000/vfyEmail?token=${token}`
+        `${domain}/vfyEmail?token=${token}`
       )
 
       const userToDB = await createDBObject(users, req.body, { salt, hash, verifiedbyadmin: false, verifiedbyuser: false, joined: new Date(Date.now() + 330 * 60 * 1000).toISOString() })

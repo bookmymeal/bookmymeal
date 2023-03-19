@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer')
 const sendEmailPass = process.env.emailPass
+const email = process.env.email
 
 async function sendEmail(to, subject, link) {
 
@@ -8,14 +9,14 @@ async function sendEmail(to, subject, link) {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: 'rajubapukaka@gmail.com', // generated ethereal user
+      user: email, // generated ethereal user
       pass: sendEmailPass, // generated ethereal password
     },
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: 'rajubapukaka@gmail.com', // sender address
+    from: email, // sender address
     to: to, // list of receivers
     subject: subject, // Subject line
     text: link, // plain text body
