@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="./users.css">
+  <title>Users</title>
+</head>
+<body>
+    <h1>Book My Meal</h1>
+<form action="">
+  <label for="user">Search user</label>
+  <input type="text" id='user' placeholder="name or ID">
+  <button type='button' id='btn'>Search</button>
+  <button type="button" id="export">Export</button>
+  <button type='button' id='select'>Select</button>
+</form>
+  <button type="button" id='selectAll' style="display:none">Select All</button>
+  <button type="button" id='verify' style="display:none">Approve</button>
+  <button type="button" id='delete' style="display:none">Delete</button>
+  
+  
+
+<table id="table">
+  <tr>
+    <th>Sr.No.</th>
+    <th>User ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Role</th>
+    <th>Joined</th>
+    <th>Status</th>
+  </tr>
+</table>
+  <script src='./users.js'></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./booking.css">
+    <title>Booking</title>
+</head>
+<body>
+    <div id="head">
+        <p id="greeting">Welcome</p>
+        <a href="/logout" id="logout">Logout</a>
+    </div>
+      
+      <div id="wrapper">
+      
+        <form action="/booking" class="form" method="post">
+      
+<!--           <label for="userid">User ID</label>
+          <input id="userid" type="number" name="userid" required> -->
+      
+          <label for="booking date">Date for Booking</label>
+          <input id="date" type="date" name="date" required>
+      
+          <label for="meal">Choose Your Meal</label>
+          <select id="meal_type" name="meal_type" id="meal">
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+          </select>
+      
+          <label for="meal_location">Meal location</label>
+          <select name="meal_location" id="meal_location">
+            <option value="east canteen">EAST Canteen</option>
+            <option value="dgen canteen">DGEN Canteen</option>
+            <option value="dgen control room">DGEN Control Room</option>
+          </select>
+      
+          <label for="slection for">Selection For :</label>
+          <select id="lunch_for" name="lunch_for" id="lunch_for">
+            <option value="self">Self</option>
+            <option value="guest">Guest</option>
+          </select>
+      
+          <label for="quantity">Quantity</label>
+          <input id="quantity" type="number" value="1" name="quantity" required>
+      
+          <label for="reason for booking">Comment</label>
+          <input id="comment" type="text" name="comment" id="comment" disabled required>
+      
+          <button type="submit" id="button">Book My Meal</button>
+      
+        </form>
+      
+      </div>
+
+      <div class="msg_wrapper hide">
+        <div id="success"><b>Congratulations! </b>YourMeal is Booked.</div>
+      </div>
+      <div class="msg_wrapper hide">
+        <div id="error"><b>Error Occured </b>YourMeal is Not Booked.</div>
+      </div>
+
+    <script src="./booking.js"></script>  
+</body>
+</html>

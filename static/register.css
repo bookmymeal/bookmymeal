@@ -1,0 +1,133 @@
+body {
+    background-color: #ecf0f3;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.5rem;
+  }
+  .form {
+    padding: 2rem 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    max-height: fit-content;
+    border-radius: 40px;
+    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+  }
+  #title {
+    font-size: 35px;
+    color: #0746ca;
+    font-family: cursive;
+    margin-bottom: 2rem;
+  }
+  .fields {
+    width: 80%;
+  }
+  .fields input {
+    color: blue;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px 5px;
+    border-radius: 25px;
+    color: #555;
+    font-size: 18px;
+    box-shadow: 8px 8px 8px #cbced1 inset, -8px -8px 8px #ffffff inset;
+    
+  }
+  
+  input[type=text]{
+    margin-bottom: 1.5rem;
+  }
+  
+  input[type=email]{
+    margin-bottom: 1.5rem;
+  }
+  
+  p {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #919294;
+  }
+  .btn {
+    background-color: #ecf0f3;
+    border: none;
+    box-shadow: none;
+    box-shadow: 8px 8px 8px #cbced1, -8px -8px 8px #ffffff;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #555;
+    width: 100%;
+    padding: 10px 5px;
+  
+    /* blue button font style; */
+  
+    background-color: #0746ca;
+    color: white;
+    box-shadow: 8px 8px 8px #919294, -5px -5px 8px #ffffff;
+  }
+  
+  .btn:hover {
+    cursor: pointer;
+  }
+  
+  .active {
+    background-color: #ffffff;
+    box-shadow: 8px 8px 8px #cbced1 inset, -8px -8px 8px #ffffff inset;
+    color: #555;
+  }
+
+  footer{
+    width: fit-content;
+    margin: auto;
+    margin-top: 1rem;
+  }
+
+  footer a {
+    text-decoration: none;
+    color: #0746ca;
+    text-align: center;
+  }
+  
+/* response notification */
+#success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  margin: auto;
+  padding: 1rem;
+}
+
+.msg_wrapper {
+  width: 100%;
+  position: fixed;
+  top: 2rem;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.vis {
+  visibility: visible;
+  animation: banner 0.5s ease-in;
+}
+
+@keyframes banner {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+  to {
+    opacity: 100%;
+    scale: 100%;
+  }
+}
+

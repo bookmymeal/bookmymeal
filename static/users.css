@@ -1,0 +1,126 @@
+body {
+  background-color: #ecf0f3;
+  margin: 0%;
+  padding: 0%;
+}
+
+h1 {
+  text-align: center;
+  border-radius: 20px;
+  padding: 1rem;
+  width: fit-content;
+  margin: 2rem auto;
+  background-color: #9600ff;
+  background-image: url("https://dictionary.cambridge.org/images/full/royalb_noun_004_2237.jpg?version=5.0.274");
+  color: white;
+  box-shadow: 8px 8px 8px #919294, -5px -5px 8px #ffffff;
+}
+
+form {
+  width: 95%;
+  display: flex;
+  padding: 1.5rem;
+  margin: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+}
+
+input {
+  height: 1.8rem;
+  padding: 10px 5px;
+  margin-right: 1rem;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  color: #555;
+  font-size: 18px;
+  box-shadow: 8px 8px 8px #cbced1 inset, -8px -8px 8px #ffffff inset;
+}
+
+label {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+button {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  text-align: center;
+  border: none;
+  border-radius: 25px;
+  background-color: #0746ca;
+  color: white;
+  box-shadow: 8px 8px 8px #919294, -5px -5px 8px #ffffff;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.active {
+  background-color: #ffffff;
+  box-shadow: 8px 8px 8px #cbced1 inset, -8px -8px 8px #ffffff inset;
+  color: #555;
+}
+
+/* design of table */
+
+table {
+  width: 95%;
+  border-radius: 1rem;
+  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+th {
+  font-size: 1.5rem;
+  padding: 1rem;
+  box-shadow: 8px 8px 8px #cbced1 inset, -8px -8px 8px #ffffff inset;
+  border-radius: 20px;
+}
+
+tr:nth-child(odd) {
+  box-shadow: 8px 8px 8px #919294, -5px -5px 8px #ffffff;
+  border-radius: 20px;
+}
+
+tr {
+  height: 2rem;
+  font-size: 1.2rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.special {
+  text-align: left;
+}
+
+.error {
+  border: 1px solid red;
+  width: fit-content;
+  padding: 10px;
+  margin: 2rem auto;
+  border-radius: 10px;
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.nodata {
+  border: 1px solid green;
+  width: fit-content;
+  padding: 10px;
+  margin: 2rem auto;
+  border-radius: 10px;
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+/* adding delete functionality */
+
+input[type="checkbox"] {
+  accent-color: red;
+  width: 1rem;
+  box-shadow: none;
+}

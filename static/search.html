@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./search.css">
+    <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+        <h1>Search for Meal</h1>
+        <form id="form"> 
+          <label for="from">From</label>
+          <input name="from" type="date" id="from">
+          <label for="to">To</label>
+          <input name="to" type="date" id="to">
+          <label for="username">Search by name</label>
+          <input name="user" type="text" id="user">
+          <button type="button" id="btn">View</button>
+          <button type="button" id="export">Export</button>
+          <button type="button" id="select">Select</button>
+        </form>
+  
+        <button type="button" id='selectAll' style="display:none">Select All</button>
+        <button type="button" id='delete' style="display:none">Delete</button>
+  
+        <table id="table">
+          <tr>
+            <th>Sr.No.</th>
+            <th>Booking Date</th>
+            <th>User ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Meal</th>
+            <th>Booking For</th>
+            <th>Quantity</th>
+            <th>Location</th>
+            <th>Comment</th>
+          </tr>
+        </table>
+        <script src="./search.js"></script>
+</body>
+</html>
