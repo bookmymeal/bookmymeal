@@ -32,10 +32,10 @@ const sendForgotPwdLink = async (req, res) => {
         "BMM Reset Your Password",
         `http://localhost:8000/reset?token=${resetPwdToken.token}`
       )
-      res.json({ msg: "Reset Password link again sned To Your Email" })
+      res.json({ msg: "Reset Password link again send To Your Email" })
     } else {
       // if token is not in db
-      if (user.verified) {
+      if (user.verifiedbyadmin) {
         const token = await genExpiringToken({ id: user.id }, 15)
 
         const resetTokenToDB = await createDBObject(pwdReset, { id: user.id, token: token })
