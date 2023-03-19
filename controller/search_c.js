@@ -33,18 +33,6 @@ async function getSearchResult(req, res) {
       req.body["to"] = today(330 * 60 * 1000) // passing +5:30 hrs in milisecond for IST
     }
 
-    // if (req.body.from && req.body.to && req.body.user) {
-    //   console.log("full query");
-    //   query = {
-    //     date: { $gte: req.body.from, $lte: req.body.to },
-    //     id: req.body.user,
-    //   };
-    // } else if (req.body.from && req.body.to) {
-    //   console.log("partial query");
-    //   query = {
-    //     date: { $gte: req.body.from, $lte: req.body.to },
-    //   };
-    // }
 
     if (req.body.from && req.body.to && req.body.user) {
       console.log("full query");

@@ -1,13 +1,12 @@
 const booking = require('../db/schema/booking')
 
-const mongoose = require('mongoose')
 
 async function deleteMeal(req, res) {
   console.log('DELETE request', req.body)
 
   if (res.decodedToken.role === 'admin') {
     const result = await booking.deleteMany({ _id: { $in: req.body.ids } })
-    console.log('DELETED', result)
+    // console.log('DELETED', result)
     res.json({ msg: 'data received' })
   }
   else {

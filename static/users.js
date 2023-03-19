@@ -120,6 +120,14 @@ const selectAllBtn = document.getElementById('selectAll')
 const deleteBtn = document.getElementById('delete')
 
 selectBtn.addEventListener('click', () => {
+
+    // press button effect
+
+    selectBtn.classList.add("active");
+    setTimeout(() => {
+      selectBtn.classList.remove("active");
+    }, 200);
+
   console.log('select')
   const rows = document.getElementsByTagName('table')[0]
   const count = document.getElementsByTagName('table')[0].children.length
@@ -159,6 +167,13 @@ selectBtn.addEventListener('click', () => {
 var click = true
 selectAllBtn.addEventListener('click', () => {
 
+    // press button effect
+
+    selectAllBtn.classList.add("active");
+    setTimeout(() => {
+      selectAllBtn.classList.remove("active");
+    }, 200);
+
   // var click = true why this not update if I define here??
   console.log('Global click', click)
 
@@ -191,6 +206,14 @@ selectAllBtn.addEventListener('click', () => {
 deleteBtn.addEventListener('click', deleteItems)
 
 function deleteItems() {
+
+    // press button effect
+
+    deleteBtn.classList.add("active");
+    setTimeout(() => {
+      deleteBtn.classList.remove("active");
+    }, 200);
+
   var ids = []
   const selectedItems = document.querySelectorAll('input[type=checkbox]').length
 
@@ -222,6 +245,13 @@ function deleteItems() {
 
 function exportExcel() {
   console.log("test");
+
+    // press button effect
+
+    exportBtn.classList.add("active");
+    setTimeout(() => {
+      exportBtn.classList.remove("active");
+    }, 200);
 
   data = {
     user: document.getElementById('user').value
@@ -262,6 +292,14 @@ const vfyBtn = document.getElementById('verify')
 vfyBtn.addEventListener('click', approveUsers)
 
 function approveUsers() {
+
+    // press button effect
+
+    vfyBtn.classList.add("active");
+    setTimeout(() => {
+      vfyBtn.classList.remove("active");
+    }, 200);
+
   var ids = []
   const selectedItems = document.querySelectorAll('input[type=checkbox]').length
 

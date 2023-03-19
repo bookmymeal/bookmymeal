@@ -7,7 +7,7 @@ const findOneAndUpdate = require('../db/query/findOneAndUpdate')
 
 
 async function removeAdminRole(req, res) {
-  const { id, pwd } = req.body
+  const { id } = req.body
 
   try {
     const user = await findOne(users, { id: id })
