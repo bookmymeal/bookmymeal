@@ -50,6 +50,7 @@ app.use('/createAdmin', createAdmin)
 app.use('/removeAdmin', removeAdmin)
 app.use('/users', users)
 
+mongoConnect(app)
 
 app.get("/", (req, res) => {
   jwt.verify(req.cookies.session, jwtSecret, function(err, decoded) {
@@ -71,10 +72,10 @@ app.get("/logout", (req, res) => {
 });
 
 
-app.listen(3000, () => {
-  console.log('server started');
-  mongoConnect()
-});
+// app.listen(3000, () => {
+//   console.log('server started');
+//   mongoConnect()
+// });
 
 
 // testing user page
