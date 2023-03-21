@@ -5,7 +5,7 @@ let passField = document.getElementsByClassName('password')[0]
 
 let form = document.getElementsByClassName('form')[0]
 
-btn.addEventListener("click", fetchData);
+// btn.addEventListener("click", fetchData);
 
 form.addEventListener("submit", fetchData);
 
