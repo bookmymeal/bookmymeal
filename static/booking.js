@@ -57,33 +57,42 @@ function active(e) {
   )
     .then(res => res.json())
     .then(data => {
-      if (data.success) {
-        success()
+      if (data.msg) {
+        success(data.msg)
       } else {
-        error()
+        error(data.err)
       }
+    })
+    .catch(err => {
+      console.log("ERROR", err)
+      error(err)
     })
 }
 
 // response msg notification
 
-let success_banner = document.getElementsByClassName('msg_wrapper')[0]
-let error_banner = document.getElementsByClassName('msg_wrapper')[1]
+// let success_banner = document.getElementsByClassName('msg_wrapper')[0]
+// let error_banner = document.getElementsByClassName('msg_wrapper')[1]
 
-function success() {
+let success_banner = document.getElementById('success')
+let error_banner = document.getElementById('error')
+
+function success(msg) {
   // reset form on sucessful submission
   form.reset()
 
   success_banner.classList.add("vis")
+  success_banner.innerHTML = msg
   setTimeout(() => {
     console.log("hi")
     success_banner.classList.remove("vis")
   }, 3000)
 }
 
-function error() {
+function error(err) {
   // console.log("ok")
   error_banner.classList.add("vis")
+  success_banner.innerHTML = err
   setTimeout(() => {
     console.log("hi")
     error_banner.classList.remove("vis")

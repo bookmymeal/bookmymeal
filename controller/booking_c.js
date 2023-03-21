@@ -23,7 +23,8 @@ const saveBooking = async (req, res) => {
   if (isBooked) {
     // front end need to be changed to accept this response
     console.log("Already booked")
-    res.json({ success: "Already Boooked" });
+    // res.json({ success: "Already Boooked" });
+    res.json({ msg: "Already Boooked" });
     return
   } else {
     const {id, firstname, lastname} = res.decodedToken
@@ -32,11 +33,11 @@ const saveBooking = async (req, res) => {
       .save()
       .then(() => {
         console.log("save");
-        res.json({ success: true });
+        res.json({ msg: '<b>Congratulations! </b>YourMeal is Booked.' });
       })
       .catch((err) => {
         console.log("Saving error", err);
-        res.json({ success: false });
+        res.json({ msg: '<b>Error Occured </b>YourMeal is Not Booked.' });
       });
   }
 
