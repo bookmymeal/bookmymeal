@@ -29,7 +29,7 @@ async function sendEmail(to, subject, link) {
 
 }
 
-//   main().catch(console.error)
+  sendEmail().catch(console.error)
 
 
 module.exports = sendEmail
