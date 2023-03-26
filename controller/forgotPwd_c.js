@@ -51,7 +51,7 @@ const sendForgotPwdLink = async (req, res) => {
               `${domain}/resetPwd?token=${token}`
             )
           })
-        res.json({ msg: "Reset Password Send To Your Email" })
+        res.json({ msg: "Reset Password Link Send To Your Email" })
       } else {
         res.json({ msg: "verification is pending" })
       }

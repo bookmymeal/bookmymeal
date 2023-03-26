@@ -16,8 +16,11 @@ const sendBookingPage = (req, res) => {
 const saveBooking = async (req, res) => {
   // const isBooked = await findOne(booking, req.body)
   const {id, firstname, lastname} = res.decodedToken
-
-  const isBooked = await findOne(booking, {...req.body, id, firstname, lastname})
+  const {date , meal} = req.body
+  const four = req.body.for
+  const isBooked = await findOne(booking, {date, meal, id, for: four})
+  // const isBooked = await findOne(booking, {...req.body, id, firstname, lastname})
+  console.log(req.body)
   console.log('isBooked', isBooked)
 
   if (isBooked) {
