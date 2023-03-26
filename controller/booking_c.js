@@ -10,7 +10,9 @@ const booking = require('../db/schema/booking')
 const findOne = require('../db/query/findOne')
 
 const sendBookingPage = (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../static', "booking.html"))
+  // res.sendFile(path.resolve(__dirname, '../static', "booking.html"))
+  const {firstname} = res.decodedToken
+  res.render(path.resolve(__dirname, '../static', "booking.ejs"), {name: {firstname: firstname}})
 }
 
 const saveBooking = async (req, res) => {

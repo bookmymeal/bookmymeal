@@ -7,6 +7,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken')
 const jwtSecret = process.env.jwtSecret
 const cookie_parser = require("cookie-parser");
+const ejs = require('ejs')
 
 
 // for test route
@@ -15,6 +16,9 @@ const book = require('./db/schema/booking')
 
 
 const app = express();
+
+// set View engine
+app.set("view engine", 'ejs')
 
 // middleware
 
@@ -61,7 +65,7 @@ app.get("/", (req, res) => {
       res.sendFile(path.resolve(__dirname, "static", "login.html"));
     }
     if (decoded) {
-      res.sendFile(path.resolve(__dirname, "static", "booking.html"));
+      res.render(path.resolve(__dirname, "static", "booking.ejs"), {name: {firstname: decoded.firstname}});
     }
   })
 });
