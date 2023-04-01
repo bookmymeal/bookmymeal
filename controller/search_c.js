@@ -36,6 +36,8 @@ async function getSearchResult(req, res) {
 
     if (req.body.from && req.body.to && req.body.user) {
       console.log("full query");
+
+      const searchVal = req.body.user
       query = {
         $and: [
           {
@@ -43,9 +45,9 @@ async function getSearchResult(req, res) {
           },
           {
             $or: [
-              { id: req.body.user },
-              { firstname: req.body.user },
-              { lastname: req.body.user }
+              { id: { $regex: new RegExp(searchVal, "i") } },
+              { firstname: { $regex: new RegExp(searchVal, "i") } },
+              { lastname: { $regex: new RegExp(searchVal, "i") } }
             ]
           }
         ]

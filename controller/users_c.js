@@ -19,9 +19,9 @@ const showUsers = async (req, res) => {
   if (req.body.user) {
     query = {
       $or: [
-        // { id: req.body.user }, casting error occures as users schema has id value set to number --> need to be solved $regex need to be added not workd when tried
-        { firstname: user },
-        { lastname: user }
+        // { id: {$regex : new RegExp(user, 'i')} }, casting error occures as users schema has id value set to number
+        { firstname: {$regex : new RegExp(user, 'i')} },
+        { lastname: {$regex : new RegExp(user, 'i')} }
       ]
     }
   } else {
