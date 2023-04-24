@@ -1,3 +1,29 @@
+const close_btn = document.getElementById('btn-close')
+const open_btn = document.getElementsByTagName('svg')[0]
+const logout_btn = document.getElementById('logout')
+
+const navbar = document.getElementsByClassName('sidebar')[0]
+
+close_btn.addEventListener('click', closeNav)
+open_btn.addEventListener('click', openNav)
+logout_btn.addEventListener('click', logout)
+
+function closeNav(){
+  navbar.style.display = 'none'
+}
+
+function openNav(){
+  navbar.style.display = 'flex'
+}
+
+function logout(){
+  window.location.pathname = '/logout'
+}
+
+
+// form javascript
+
+
 const ele = document.getElementById("lunch_for");
 const comment = document.getElementById("comment");
 
@@ -98,6 +124,7 @@ function error(err) {
     error_banner.classList.remove("vis")
   }, 5000)
 }
+
 
 
 

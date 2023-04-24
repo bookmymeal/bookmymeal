@@ -8,56 +8,69 @@
     <title>Booking</title>
 </head>
 <body>
-    <div id="head">
-        <p id="greeting">Hi, <%= name.firstname %></p>
-        <a href="/logout" id="logout">Logout</a>
+  <nav>
+    <p class="logo">BookMyMeal</p>
+    <p class="greet">Hi, <%= name.firstname %></p>
+    <div class='menu'>
+      <button id='logout'>Logout</button>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M61.1 224C45 224 32 211 32 194.9c0-1.9 .2-3.7 .6-5.6C37.9 168.3 78.8 32 256 32s218.1 136.3 223.4 157.3c.5 1.9 .6 3.7 .6 5.6c0 16.1-13 29.1-29.1 29.1H61.1zM144 128a16 16 0 1 0 -32 0 16 16 0 1 0 32 0zm240 16a16 16 0 1 0 0-32 16 16 0 1 0 0 32zM272 96a16 16 0 1 0 -32 0 16 16 0 1 0 32 0zM16 304c0-26.5 21.5-48 48-48H448c26.5 0 48 21.5 48 48s-21.5 48-48 48H64c-26.5 0-48-21.5-48-48zm16 96c0-8.8 7.2-16 16-16H464c8.8 0 16 7.2 16 16v16c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V400z" />
+      </svg>
     </div>
-      
-      <div id="wrapper">
-      
-        <form action="/booking" class="form" method="post">
-      
-          <label for="booking date">Date for Booking</label>
-          <input id="date" type="date" name="date" required>
-      
-          <label for="meal">Choose Your Meal</label>
-          <select id="meal_type" name="meal_type" id="meal">
-            <option value="lunch">Lunch</option>
-            <option value="dinner">Dinner</option>
-          </select>
-      
-          <label for="meal_location">Meal location</label>
-          <select name="meal_location" id="meal_location">
-            <option value="east canteen">EAST Canteen</option>
-            <option value="dgen canteen">DGEN Canteen</option>
-            <option value="dgen control room">DGEN Control Room</option>
-          </select>
-      
-          <label for="slection for">Selection For :</label>
-          <select id="lunch_for" name="lunch_for" id="lunch_for">
-            <option value="self">Self</option>
-            <option value="guest">Guest</option>
-          </select>
-      
-          <label for="quantity">Quantity</label>
-          <input id="quantity" type="number" value="1" name="quantity" required>
-      
-          <label for="reason for booking">Comment</label>
-          <input id="comment" type="text" name="comment" id="comment" disabled required>
-      
-          <button type="submit" id="button">Book My Meal</button>
-      
-        </form>
-      
-      </div>
+  </nav>
+  <div class="sidebar hidden">
+    <a href="#" id='btn-close'>&times;</a>
+    <a href="/search">Booking Report</a>
+    <a href="/users">Users</a>
+    <a href="/createAdmin">Admin</a>
+    <a href="#">Notification</a>
+  </div>
+  
+  <div id="wrapper">
+  
+    <form action="/booking" class="form" method="post">
+  
+      <label for="booking date">Date for Booking</label>
+      <input id="date" type="date" name="date" required>
+  
+      <label for="meal">Choose Your Meal</label>
+      <select id="meal_type" name="meal_type" id="meal">
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+      </select>
+  
+      <label for="meal_location">Meal location</label>
+      <select name="meal_location" id="meal_location">
+        <option value="east canteen">EAST Canteen</option>
+        <option value="dgen canteen">DGEN Canteen</option>
+        <option value="dgen control room">DGEN Control Room</option>
+      </select>
+  
+      <label for="slection for">Selection For :</label>
+      <select id="lunch_for" name="lunch_for" id="lunch_for">
+        <option value="self">Self</option>
+        <option value="guest">Guest</option>
+      </select>
+  
+      <label for="quantity">Quantity</label>
+      <input id="quantity" type="number" value="1" name="quantity" required>
+  
+      <label for="reason for booking">Comment</label>
+      <input id="comment" type="text" name="comment" id="comment" disabled required>
+  
+      <button type="submit" id="button">Book My Meal</button>
+  
+    </form>
+  
+  </div>
+  
+  <div class="msg_wrapper hide">
+    <div id="success"></div>
+  </div>
+  <div class="msg_wrapper hide">
+    <div id="error"><b>Error Occured </b>YourMeal is Not Booked.</div>
+  </div>
 
-      <div class="msg_wrapper hide">
-        <div id="success"></div>
-      </div>
-      <div class="msg_wrapper hide">
-        <div id="error"><b>Error Occured </b>YourMeal is Not Booked.</div>
-      </div>
-
-    <script src="./booking.js"></script>  
+  <script src="./booking.js"></script>  
 </body>
 </html>
