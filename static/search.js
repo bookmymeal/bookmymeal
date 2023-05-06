@@ -114,7 +114,8 @@ function clearPage(table) {
 
 function addTable() {
   let newTable = document.createElement("table");
-  document.body.appendChild(newTable);
+  // document.body.appendChild(newTable);
+  document.getElementById('table-wrapper').appendChild(newTable)
   let table = document.getElementsByTagName("table")[0];
 
   let newTr = document.createElement("tr");
@@ -297,4 +298,33 @@ function deleteItems() {
     })
     .catch(err => console.log(err))
 
+}
+
+// navbar 
+
+const close_btn = document.getElementById('btn-close')
+const open_btn = document.getElementsByTagName('svg')[0]
+const logout_btn = document.getElementById('logout')
+
+const navbar = document.getElementsByClassName('sidebar')[0]
+
+close_btn.addEventListener('click', closeNav)
+open_btn.addEventListener('click', openNav)
+logout_btn.addEventListener('click', logout)
+
+document.addEventListener('click', closeNav)
+
+function closeNav(){
+  // console.log('close')
+  navbar.style.display = 'none'
+}
+
+function openNav(e){
+  e.stopPropagation()
+  // console.log('open')
+  navbar.style.display = 'flex'
+}
+
+function logout(){
+  window.location.pathname = '/logout'
 }
