@@ -1,8 +1,111 @@
-body {
-  background-color: #ecf0f3;
-  margin: 0%;
-  padding: 0%;
-}
+  /* navbar */
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #ecf0f3;
+  }
+  
+  svg{
+    width: 2rem;
+  }
+  
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem;
+    flex-wrap: wrap;
+    padding: 1rem 2rem;
+    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+  border-radius: 20px;
+  }
+  
+  p{
+    margin: 0;
+  }
+  
+  .logo{
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .greet{
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  
+  .menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  #logout{
+    font-size: 1.2rem;
+    border: none;
+    background-color: #72c172;
+    color: white;
+    box-shadow: 8px 8px 8px #919294, -5px -5px 8px #ffffff;
+    border-radius: 25px;
+    padding: .5em;
+    margin-right: 1rem;
+  }
+  
+  .sidebar{
+    border-left: .5rem solid green;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    height: 100vh;
+    padding-top: 6rem;
+    background-color: #ecf0f3;
+    width: 250px;
+    box-sizing: border-box;
+  }
+  
+  a{
+    text-decoration:none;
+    color: black;
+    font-size: 1.2rem;
+    padding: .5rem;
+    padding-left: 1rem;
+  
+  }
+  
+  #btn-close{
+    text-align: right;
+    padding-right: 1rem;
+    font-size: 2rem;
+    width: fit-content;
+    position: relative;
+    left: 80%;
+  }
+  
+  .hidden{
+    display: none;
+  }
+  
+  .sidebar a:hover{
+    background-color: #919294;
+    background-color: #72c172;
+    color: white;
+  }
+  
+  
+  @media screen and (max-width: 700px) {
+    nav{
+        flex-direction: column;
+    }
+    .menu{
+        width: 100%;
+    }
+  
+    .logo, .greet{
+        margin-bottom: 0.5rem;
+    }
+  }
 
 h1 {
   text-align: center;
@@ -17,7 +120,7 @@ h1 {
 }
 
 form {
-  width: 95%;
+  /* width: 95%; */
   display: flex;
   padding: 1.5rem;
   margin: 1.2rem;
@@ -123,4 +226,46 @@ input[type="checkbox"] {
   accent-color: red;
   width: 1rem;
   box-shadow: none;
+}
+
+/* mobile ready */
+
+#table-wrapper{
+  overflow-x: auto;
+}
+
+@media screen and (max-width: 900px) {
+  form{
+      flex-direction: column;
+  }
+  label, button, input{
+      margin-bottom: 1rem;
+  }
+
+  button{
+      font-size: .8rem;
+  }
+  #btn-group-1{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      flex-wrap: wrap;
+  }
+  label, th, td{
+      font-size: .9rem;
+    }
+  label{
+      text-align: right;
+  }
+  #btn-group-2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+  }
+}
+
+input::placeholder{
+  padding-left: 1rem;
 }
