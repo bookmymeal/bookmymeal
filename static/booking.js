@@ -8,11 +8,16 @@ close_btn.addEventListener('click', closeNav)
 open_btn.addEventListener('click', openNav)
 logout_btn.addEventListener('click', logout)
 
+document.addEventListener('click', closeNav)
+
 function closeNav(){
+  console.log('close')
   navbar.style.display = 'none'
 }
 
-function openNav(){
+function openNav(e){
+  e.stopPropagation()
+  console.log('open')
   navbar.style.display = 'flex'
 }
 
