@@ -5,6 +5,7 @@ btn.addEventListener("click", trueFetch);
 
 function trueFetch(e) {
   // console.log("hellow")
+  e.preventDefault()
 
   clearPage(table)
   addTable()
