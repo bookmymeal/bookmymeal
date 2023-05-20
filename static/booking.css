@@ -41,7 +41,7 @@ p{
   justify-content: space-between;
 }
 
-#logout{
+.button{
   font-size: 1.2rem;
   border: none;
   background-color: #72c172;
@@ -94,6 +94,13 @@ a{
   color: white;
 }
 
+button:hover{
+  cursor: pointer;
+}
+
+svg:hover{
+  cursor: pointer;
+}
 
 @media screen and (max-width: 700px) {
   nav{
@@ -164,7 +171,7 @@ h1{
   justify-content: flex-start;
 /*   border: 1px solid red; */
 }
-#button {
+.submit {
   width: 80%;
   height: 2rem;
   border: none;
@@ -172,10 +179,6 @@ h1{
   border-radius: 25px;
   font-size: 1.2rem;
   margin-top: .5rem;
- 
-
-  /* blue button font style; */
-
   background-color: #72c172;
   color: white;
   box-shadow: 8px 8px 8px #919294, -5px -5px 8px #ffffff;

@@ -21,7 +21,15 @@ function openNav(e){
   navbar.style.display = 'flex'
 }
 
+const logoutBtn = document.getElementById('logout')
+
 function logout(){
+  console.log('logoutBtn Clicked')
+  logoutBtn.classList.add("active");
+  setTimeout(() => {
+    logoutBtn.classList.remove("active");
+  }, 200);
+
   window.location.pathname = '/logout'
 }
 
@@ -44,7 +52,7 @@ function disable(e) {
   }
 }
 
-const btn = document.getElementById("button");
+const btn = document.getElementById("submit");
 
 // btn.addEventListener("click", active);
 form.addEventListener("submit", active);
@@ -64,7 +72,7 @@ function active(e) {
   let lunch_for = document.getElementById('lunch_for').value
   let quantity = document.getElementById('quantity').value
   // let comment = document.getElementById('comment')
-  let button = document.getElementById('button').value
+  let button = document.getElementById('submit').value
 
   const getData = {
     // id: userid,
