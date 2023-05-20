@@ -1,5 +1,6 @@
 // import schema
 const booking = require("../db/schema/booking");
+const users = require('../db/schema/users')
 
 // email template
 const fs = require('fs')
@@ -76,13 +77,21 @@ async function dailyEmailReport() {
   const html = ejs.render(template, data);
   //   console.log(html)
 
-  sendEmail("kdkothari7@gmail.com", "daily meal Booking", 'null', html).catch(
+  // find email of admin role person
+  const emailList = []
+  const admins = await users.find({role: 'admin'})
+  admins.forEach(val => {
+    emailList.push(val.email)
+  })
+//   console.log("EMAIL List", emailList)
+
+  sendEmail(emailList, "daily meal Booking", 'null', html).catch(
     (err) => console.log(err)
   );
 }
 
 function sendDailyEmailReport(){
     // 9hrs indian time
-    cron.schedule("30 3 * * *", dailyEmailReport);
+    cron.schedule("* * * * *", dailyEmailReport);
 }
 module.exports = sendDailyEmailReport
