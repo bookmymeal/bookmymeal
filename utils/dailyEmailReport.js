@@ -92,6 +92,6 @@ async function dailyEmailReport() {
 
 function sendDailyEmailReport(){
     // 9hrs indian time
-    cron.schedule("* * * * *", dailyEmailReport);
+    cron.schedule("30 3 * * *", dailyEmailReport);
 }
 module.exports = sendDailyEmailReport
