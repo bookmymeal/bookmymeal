@@ -8,6 +8,13 @@ const jwt = require('jsonwebtoken')
 const jwtSecret = process.env.jwtSecret
 const cookie_parser = require("cookie-parser");
 const ejs = require('ejs')
+const webpush = require('web-push')
+
+webpush.setVapidDetails(
+  'mailto:kdkothari7@gmail.com',
+  process.env.vapidPubKey,
+  process.env.vapidPriKey
+)
 
 
 // for test route
@@ -41,6 +48,7 @@ const createAdmin = require('./routes/createAdmin')
 const removeAdmin = require('./routes/removeAdmin')
 const users = require('./routes/users')
 const vfyAccount = require('./routes/vfyAccount')
+const notification = require('./routes/notification')
 
 app.use('/booking', booking)
 app.use('/register', register)
@@ -54,6 +62,7 @@ app.use('/createAdmin', createAdmin)
 app.use('/removeAdmin', removeAdmin)
 app.use('/users', users)
 app.use('/vfyAccount', vfyAccount)
+app.use('/notification', notification)
 
 mongoConnect(app)
 
@@ -76,8 +85,9 @@ app.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
-
-
+// cron job daily web-push notification
+const sendDailyNotification = require('./utils/cronJob')
+sendDailyNotification()
 
 
 // testing path for any query value search in search field
