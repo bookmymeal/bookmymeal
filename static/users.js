@@ -41,9 +41,9 @@ function fetchData(e) {
           let lastname = document.createElement("td");
           let role = document.createElement("td");
           let joined = document.createElement("td");
-          let status = document.createElement("td");
+          let approved = document.createElement("td");
 
-          const person = [srno, userid, firstname, lastname, role, joined, status]
+          const person = [srno, userid, firstname, lastname, role, joined, approved]
 
           person.forEach((val) => {
             srno.innerText = number
@@ -52,7 +52,7 @@ function fetchData(e) {
             lastname.innerText = block.lastname
             role.innerText = block.role
             joined.innerText = block.joined.split('T')[0]
-            status.innerText = block.verifiedbyadmin
+            approved.innerText = block.verifiedbyadmin
           })
 
           person.forEach(val => {
@@ -104,7 +104,7 @@ function addTable() {
   let tr = document.getElementsByTagName("tr")[0];
   // console.log(table);
 
-  const head = ['Sr.No.', 'User ID', "First Name", 'Last Name', 'Role', "Joined", "Status"]
+  const head = ['Sr.No.', 'User ID', "First Name", 'Last Name', 'Role', "Joined", "Approved"]
 
   head.forEach((val) => {
     let th = document.createElement("th");

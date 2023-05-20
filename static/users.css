@@ -73,6 +73,14 @@
     padding-left: 1rem;
   
   }
+
+  button:hover{
+    cursor: pointer;
+  }
+
+  svg:hover{
+    cursor: pointer;
+  }
   
   #btn-close{
     text-align: right;
