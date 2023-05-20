@@ -89,6 +89,10 @@ app.get("/logout", (req, res) => {
 const sendDailyNotification = require('./utils/cronJob')
 sendDailyNotification()
 
+// cron job daily meal booking email report
+const sendDailyEmailReport = require('./utils/dailyEmailReport')
+sendDailyEmailReport()
+
 
 // testing path for any query value search in search field
 app.get('/test', async (req, res) => {

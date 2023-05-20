@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+    <div
+      id="report"
+      style="
+        border: 2px solid black;
+        border-radius: 1rem;
+        padding: 1rem;
+        position: absolute;
+        top: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+      "
+    >
+      <p
+        id="title"
+        style="
+          text-align: center;
+          font-size: 1.2rem;
+          font-weight: bold;
+          text-decoration: underline;
+        "
+      >
+        Daily Meal Report
+      </p>
+      <p>Date: <span id="date"><%= time%></span></p>
+      <p>Total Meal : <span><%= total %></span></p>
+      <p>Lunch : <span><%= lunch %></span></p>
+      <p>Dinner : <span><%= dinner %></span></p>
+      <div id="lunch" style="padding: 1rem; border-radius: 1rem">
+        <p>Lunch Detail :</p>
+        <table
+          style="
+            border: 1px solid black;
+            border-radius: 20px;
+            border-collapse: collapse;
+          "
+        >
+          <tr>
+            <th style="border: 1px solid black">EAST Canteen</th>
+            <th style="border: 1px solid black">DGEN Canteen</th>
+            <th style="border: 1px solid black">DGEN Control Room</th>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black; text-align: center">
+              <%=eastCanteenL%>
+            </td>
+            <td style="border: 1px solid black; text-align: center">
+              <%=dgenCanteenL%>
+            </td>
+            <td style="border: 1px solid black; text-align: center">
+              <%=dgenControlroomL%>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="dinner" style="padding: 1rem; border-radius: 1rem">
+        <p>Dinner Detail :</p>
+        <table
+          style="
+            border: 1px solid black;
+            border-radius: 20px;
+            border-collapse: collapse;
+          "
+        >
+          <tr>
+            <th style="border: 1px solid black">EAST Canteen</th>
+            <th style="border: 1px solid black">DGEN Canteen</th>
+            <th style="border: 1px solid black">DGEN Control Room</th>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black; text-align: center">
+              <%=eastCanteenD%>
+            </td>
+            <td style="border: 1px solid black; text-align: center">
+              <%=dgenCanteenD%>
+            </td>
+            <td style="border: 1px solid black; text-align: center">
+              <%=dgenControlroomD%>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

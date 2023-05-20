@@ -1,11 +1,10 @@
-const nodemailer = require('nodemailer')
-const sendEmailPass = process.env.emailPass
-const email = process.env.email
-const smtpRelayHost = process.env.smtpRelayHost
-const emailSender = process.env.emailSender
+const nodemailer = require("nodemailer");
+const sendEmailPass = process.env.emailPass;
+const email = process.env.email;
+const smtpRelayHost = process.env.smtpRelayHost;
+const emailSender = process.env.emailSender;
 
-async function sendEmail(to, subject, link) {
-
+async function sendEmail(to, subject, link, html) {
   let transporter = nodemailer.createTransport({
     host: smtpRelayHost,
     port: 587,
@@ -22,14 +21,12 @@ async function sendEmail(to, subject, link) {
     to: to, // list of receivers
     subject: subject, // Subject line
     text: link, // plain text body
-    //   html: `<h1>BMM Testing</h1>`, // html body
+    html: html, // html body
   });
 
   console.log("Message sent: %s", info.messageId);
-
 }
 
-  // sendEmail().catch(console.error)
+// sendEmail().catch(console.error)
 
-
-module.exports = sendEmail
+module.exports = sendEmail;
