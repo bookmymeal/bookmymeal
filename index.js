@@ -50,6 +50,7 @@ const users = require('./routes/users')
 const vfyAccount = require('./routes/vfyAccount')
 const notification = require('./routes/notification')
 const sendDailyEmailReport = require('./routes/cron_mail')
+const dailyNotification = require('./routes/cron_notification')
 
 app.use('/booking', booking)
 app.use('/register', register)
@@ -65,6 +66,7 @@ app.use('/users', users)
 app.use('/vfyAccount', vfyAccount)
 app.use('/notification', notification)
 app.use('/dailyEmailReport', sendDailyEmailReport)
+app.use('/dailyNotification', dailyNotification)
 
 mongoConnect(app)
 
@@ -88,8 +90,8 @@ app.get("/logout", (req, res) => {
 });
 
 // cron job daily web-push notification
-const sendDailyNotification = require('./utils/cronJob')
-sendDailyNotification()
+// const sendDailyNotification = require('./utils/cronJob')
+// sendDailyNotification()
 
 
 // testing path for any query value search in search field
