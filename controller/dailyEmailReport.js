@@ -89,7 +89,7 @@ const dailyEmailReport = async (req, res) => {
     });
     //   console.log("EMAIL List", emailList)
 
-    sendEmail(emailList, "daily meal Booking", "null", html).catch((err) =>
+    await sendEmail(emailList, "daily meal Booking", "null", html).catch((err) =>
       console.log(err)
     );
     res.send("Email send");
