@@ -49,6 +49,7 @@ const removeAdmin = require('./routes/removeAdmin')
 const users = require('./routes/users')
 const vfyAccount = require('./routes/vfyAccount')
 const notification = require('./routes/notification')
+const sendDailyEmailReport = require('./routes/cron_mail')
 
 app.use('/booking', booking)
 app.use('/register', register)
@@ -63,6 +64,7 @@ app.use('/removeAdmin', removeAdmin)
 app.use('/users', users)
 app.use('/vfyAccount', vfyAccount)
 app.use('/notification', notification)
+app.use('/dailyEmailReport', sendDailyEmailReport)
 
 mongoConnect(app)
 
@@ -88,10 +90,6 @@ app.get("/logout", (req, res) => {
 // cron job daily web-push notification
 const sendDailyNotification = require('./utils/cronJob')
 sendDailyNotification()
-
-// cron job daily meal booking email report
-const sendDailyEmailReport = require('./utils/dailyEmailReport')
-sendDailyEmailReport()
 
 
 // testing path for any query value search in search field
