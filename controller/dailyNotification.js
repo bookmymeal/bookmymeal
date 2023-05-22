@@ -33,8 +33,8 @@ const notification = async(req, res) => {
 
 //delete unsuscribed user endpoints
 async function del(err) {
-  const del = await subscriptions.findOneAndDelete({ endpoint: err.endpoint })
-  console.log('deleted', del)
+  const delItem = await subscriptions.findOneAndDelete({ endpoint: err.endpoint })
+  console.log('deleted', delItem)
 }
 
 module.exports = notification;
