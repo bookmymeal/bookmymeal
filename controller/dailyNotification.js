@@ -1,6 +1,6 @@
 const cron = require("node-cron");
-const subscriptions = require('../db/schema/subscriptions')
-const webpush = require('web-push')
+const subscriptions = require("../db/schema/subscriptions");
+const webpush = require("web-push");
 
 // const { sendNotification } = require("../controller/notification_c");
 
@@ -11,30 +11,39 @@ const webpush = require('web-push')
 //   cron.schedule("* 3 * * *", sendNotification);
 // }
 
-const notification = async(req, res) => {
-  if(req.headers['x-cyclic'] === 'cron'){
-    const payload = JSON.stringify({ title: "Book My Meal", body: "Book Your Meal Now" });
+const notification = async (req, res) => {
+  if (req.headers["x-cyclic"] === "cron") {
+    const payload = JSON.stringify({
+      title: "Book My Meal",
+      body: "Book Your Meal Now",
+    });
     const users = await subscriptions.find();
     // console.log("USERS: ", users)
     for (let i = 0; i < users.length; i++) {
       console.log("I: ", i);
-      webpush.sendNotification(users[i], payload).catch((err) => {
+      webpush.sendNotification(users[i], payload).catch(async (err) => {
         console.log("Nottification not sent due to Error: ", err);
         if (err.statusCode == 410) {
-          del(err);
+          // del(err);
+          const delItem = await subscriptions.findOneAndDelete({
+            endpoint: err.endpoint,
+          });
+          console.log("deleted", delItem);
         }
       });
-    }res.send("Notification Send")
-  }else{
-    res.send('Not-Authorized')
+    }
+    res.send("Notification Send");
+  } else {
+    res.send("Not-Authorized");
   }
-
-}
+};
 
 //delete unsuscribed user endpoints
-async function del(err) {
-  const delItem = await subscriptions.findOneAndDelete({ endpoint: err.endpoint })
-  console.log('deleted', delItem)
-}
+// async function del(err) {
+//   const delItem = await subscriptions.findOneAndDelete({
+//     endpoint: err.endpoint,
+//   });
+//   console.log("deleted", delItem);
+// }
 
 module.exports = notification;
