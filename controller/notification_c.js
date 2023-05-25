@@ -55,4 +55,15 @@ async function del(err) {
     console.log('deleted', delItem)
   }
 
-module.exports = { sendNotificationPage, subscribe, sendNotification };
+const unsubscribe = async (req, res) => {
+  try {
+    console.log("EndPoint: ", req.body.endpoint)
+    const delSubscription = await subscriptions.findOneAndDelete({ endpoint: req.body.endpoint })
+    res.json({subscriptionDeleted: true})
+  } catch (error) {
+    console.log(error)
+    res.json({subscriptionDeleted: false})
+  }
+}
+
+module.exports = { sendNotificationPage, subscribe, sendNotification, unsubscribe };
