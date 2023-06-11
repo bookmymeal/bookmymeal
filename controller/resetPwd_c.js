@@ -58,8 +58,7 @@ async function resetPwdLink(req, res) {
         {id: req.id},
         {
           salt,
-          hash, 
-          password
+          hash,
         }
       )
       await findOneAndDelete(pwdReset, {id: req.id}).catch(err => console.log(err))

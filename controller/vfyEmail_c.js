@@ -9,6 +9,7 @@ const findOneAndDelete = require('../db/query/findOneAndDelete')
 
 async function confirmEmail(req, res){
   const {token} = req.query
+  console.log("Email Token", token)
  try{
    const user = await findOne(vfyEmail, {token})
    if(user){
