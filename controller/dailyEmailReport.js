@@ -25,7 +25,7 @@ const dailyEmailReport = async (req, res) => {
     const month = dateObj.getMonth() + 1;
     const day = dateObj.getDate();
 
-    const localDate = `${day}-${month <= 9 ? `0${month}` : month}-${year}`;
+    const localDate = `${day <= 9 ? `0${day}` : day}-${month <= 9 ? `0${month}` : month}-${year}`;
     console.log(localDate);
     const data = {
       time: localDate,
@@ -43,7 +43,7 @@ const dailyEmailReport = async (req, res) => {
     //get data from DB
 
     const report = await booking.find({
-      date: `${year}-${month <= 9 ? `0${month}` : month}-${day}`,
+      date: `${year}-${month <= 9 ? `0${month}` : month}-${day <= 9 ? `0${day}` : day}`,
     });
     // const report = await booking.find({date: {$gte: "2023-01-01", $lte: `${year}-${month <= 9 ? `0${month}` : month}-${day}`}})
 
