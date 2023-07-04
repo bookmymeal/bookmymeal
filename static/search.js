@@ -55,10 +55,10 @@ function trueFetch(e) {
           let comment = document.createElement("td");
           let firstname = document.createElement("td");
           let lastname = document.createElement("td");
-          let time = document.createElement("td");
+          let timeStamp = document.createElement("td");
 
           const person = [
-            srno, date, time, userid, firstname, lastname, meal, four, quantity, location, comment
+            srno, date, timeStamp, userid, firstname, lastname, meal, four, quantity, location, comment
           ]
 
           person.forEach((val) => {
@@ -72,7 +72,7 @@ function trueFetch(e) {
             comment.innerText = block.comment
             firstname.innerText = block.firstname
             lastname.innerText = block.lastname
-            time.innerText = block.createdAt ? `${localTime(block.createdAt)} hrs` : '-'
+            timeStamp.innerText = block.createdAt ? `${localTime(block.createdAt)} hrs` : '-'
           })
 
           location.classList.add("special");
@@ -126,7 +126,7 @@ function addTable() {
   let tr = document.getElementsByTagName("tr")[0];
   // console.log(table);
 
-  const head = ["Sr.No.", "Booking Date", "Time", "USER ID", "First Name", "Last Name", "Meal", "Booking For", "Quantity", "Location", "Comment"];
+  const head = ["Sr.No.", "Booking Date", "Time Stamp", "USER ID", "First Name", "Last Name", "Meal", "Booking For", "Quantity", "Location", "Comment"];
 
   head.forEach((val) => {
     let th = document.createElement("th");
@@ -339,5 +339,5 @@ function localTime(utcTimeString){
   let hours = newTime.split(':')
   console.log('newTime', newTime)
   console.log(`${hours[0]}:${hours[1]}`)
-  return (`${hours[0]}:${hours[1]}`)
+  return (`${newTimeString.split('T')[0]} ${hours[0]}:${hours[1]}`)
 }
