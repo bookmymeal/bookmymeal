@@ -55,9 +55,10 @@ function trueFetch(e) {
           let comment = document.createElement("td");
           let firstname = document.createElement("td");
           let lastname = document.createElement("td");
+          let time = document.createElement("td");
 
           const person = [
-            srno, date, userid, firstname, lastname, meal, four, quantity, location, comment
+            srno, date, time, userid, firstname, lastname, meal, four, quantity, location, comment
           ]
 
           person.forEach((val) => {
@@ -71,6 +72,7 @@ function trueFetch(e) {
             comment.innerText = block.comment
             firstname.innerText = block.firstname
             lastname.innerText = block.lastname
+            time.innerText = block.createdAt ? `${localTime(block.createdAt)} hrs` : '-'
           })
 
           location.classList.add("special");
@@ -124,7 +126,7 @@ function addTable() {
   let tr = document.getElementsByTagName("tr")[0];
   // console.log(table);
 
-  const head = ["Sr.No.", "Booking Date", "USER ID", "First Name", "Last Name", "Meal", "Booking For", "Quantity", "Location", "Comment"];
+  const head = ["Sr.No.", "Booking Date", "Time", "USER ID", "First Name", "Last Name", "Meal", "Booking For", "Quantity", "Location", "Comment"];
 
   head.forEach((val) => {
     let th = document.createElement("th");
@@ -162,7 +164,7 @@ function exportExcel() {
   )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       /* generate worksheet and workbook */
       const worksheet = XLSX.utils.json_to_sheet(data);
       const workbook = XLSX.utils.book_new();
@@ -328,4 +330,14 @@ function openNav(e){
 
 function logout(){
   window.location.pathname = '/logout'
+}
+
+function localTime(utcTimeString){
+  let time = new Date(utcTimeString)
+  let newTimeString = new Date(time.getTime() + (330 * 60 * 1000)).toISOString()
+  let newTime = newTimeString.split('T')[1]
+  let hours = newTime.split(':')
+  console.log('newTime', newTime)
+  console.log(`${hours[0]}:${hours[1]}`)
+  return (`${hours[0]}:${hours[1]}`)
 }
