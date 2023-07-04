@@ -30,7 +30,7 @@ async function getSearchResult(req, res) {
 
     if (!req.body.to) {
       // setting date to today if not given by user
-      req.body["to"] = today(330 * 60 * 1000) // passing +5:30 hrs in milisecond for IST
+      req.body["to"] = today(330) // passing +5:30 hrs in milisecond for IST
     }
 
 
