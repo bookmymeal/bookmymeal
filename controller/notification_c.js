@@ -36,7 +36,9 @@ const sendNotification = async (req, res) => {
     // console.log("USERS: ", users)
     for (let i = 0; i < users.length; i++) {
       console.log("I: ", i);
-      webpush.sendNotification(users[i], payload).catch((err) => {
+      webpush.sendNotification(users[i], payload)
+      .then(val => console.log("first Notification send", val))
+      .catch((err) => {
         console.log("Nottification not sent due to Error: ", err);
         if (err.statusCode == 410) {
           del(err);
