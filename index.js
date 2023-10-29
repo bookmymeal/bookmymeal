@@ -11,7 +11,7 @@ const ejs = require('ejs')
 const webpush = require('web-push')
 
 webpush.setVapidDetails(
-  'mailto:kdkothari7@gmail.com',
+  'mailto:bookmymeal.online@gmail.com',
   process.env.vapidPubKey,
   process.env.vapidPriKey
 )
