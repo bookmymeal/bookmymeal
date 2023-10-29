@@ -47,7 +47,7 @@ function subscribeForNotification() {
               .subscribe({
                 userVisibleOnly: true,
                 applicationServerKey:
-                  "BJhTsa8omc0LX_44cy54ZWZFIE2c90cfrv42l3YKjegmNJt8iHKitAYPlGqRg5K2gZQh-XRfIS1Rpaa41TvwTkE",
+                  "BFwMxKFKAkwCUJT3Fn82FQzQo10xoewcDKMLvs07nWUUEBZy51UxBWwQWNGoZbkKNIlI3UchFjCBcRGumGjz1EY",
               })
               .then((pushObject) => {
                 console.log("new SUBSCRIPTION", pushObject);
